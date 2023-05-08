@@ -2,4 +2,3 @@ db.sqlite3
 art/__pycache__/*
 page/__pycache__/*
 page/migrations/*
-
