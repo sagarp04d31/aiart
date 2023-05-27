@@ -44,6 +44,14 @@
             <a class="text-4xl font-mono font-bold text-white"> Showcase </a>
           </div>
 
+          <div class="flex items-center justify-center py-4 md:py-8 flex-wrap">
+              <button type="button" class="text-blue-700 hover:text-white border border-blue-600 bg-white hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:bg-gray-900 dark:focus:ring-blue-800">All categories</button>
+              <button type="button" class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">Shoes</button>
+              <button type="button" class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">Bags</button>
+              <button type="button" class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">Electronics</button>
+              <button type="button" class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">Gaming</button>
+          </div>
+
           <div class="flex flex-row mr-10">
             <div class="flex flex-row justify-center items-center cursor-pointer text-lg font-mono text-white border rounded w-28 m-1 hover:bg-cyan-800"> 
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-yellow-500 w-6 h-6 mr-2">
@@ -68,52 +76,72 @@
           <!--   <figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">Image caption</figcaption> -->
           <!-- </figure> -->
 
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div class="grid gap-4">
-                  <div>
-                      <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg" alt="">
-                  </div>
-                  <div>
-                      <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg" alt="">
-                  </div>
-                  <div>
-                      <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg" alt="">
-                  </div>
-              </div>
-              <div class="grid gap-4">
-                  <div>
-                      <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg" alt="">
-                  </div>
-                  <div>
-                      <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg" alt="">
-                  </div>
-                  <div>
-                      <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg" alt="">
-                  </div>
-              </div>
-              <div class="grid gap-4">
-                  <div>
-                      <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg" alt="">
-                  </div>
-                  <div>
-                      <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg" alt="">
-                  </div>
-                  <div>
-                      <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg" alt="">
-                  </div>
-              </div>
-              <div class="grid gap-4">
-                  <div>
-                      <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg" alt="">
-                  </div>
-                  <div>
-                      <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg" alt="">
-                  </div>
-                  <div>
-                      <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg" alt="">
-                  </div>
-              </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {% for art in arts %}
+          {% if forloop.first %}
+          <div class="grid gap-4">
+          {% endif %}
+            <div>
+              <img class="h-auto max-w-full rounded-lg" src="{{ art.image.url }}" alt="">
+            </div>
+          {% if forloop.counter|divisibleby:4 %}
           </div>
+          <div class="grid gap-4">
+          {% endif %}
+          {% if forloop.last %}
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+
+
+          <!-- <div class="grid grid-cols-2 md:grid-cols-4 gap-4"> -->
+          <!--     <div class="grid gap-4"> -->
+          <!--         <div> -->
+          <!--             <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg" alt=""> -->
+          <!--         </div> -->
+          <!--         <div> -->
+          <!--             <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg" alt=""> -->
+          <!--         </div> -->
+          <!--         <div> -->
+          <!--             <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg" alt=""> -->
+          <!--         </div> -->
+          <!--     </div> -->
+          <!--     <div class="grid gap-4"> -->
+          <!--         <div> -->
+          <!--             <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg" alt=""> -->
+          <!--         </div> -->
+          <!--         <div> -->
+          <!--             <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg" alt=""> -->
+          <!--         </div> -->
+          <!--         <div> -->
+          <!--             <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg" alt=""> -->
+          <!--         </div> -->
+          <!--     </div> -->
+          <!--     <div class="grid gap-4"> -->
+          <!--         <div> -->
+          <!--             <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg" alt=""> -->
+          <!--         </div> -->
+          <!--         <div> -->
+          <!--             <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg" alt=""> -->
+          <!--         </div> -->
+          <!--         <div> -->
+          <!--             <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg" alt=""> -->
+          <!--         </div> -->
+          <!--     </div> -->
+          <!--     <div class="grid gap-4"> -->
+          <!--         <div> -->
+          <!--             <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg" alt=""> -->
+          <!--         </div> -->
+          <!--         <div> -->
+          <!--             <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg" alt=""> -->
+          <!--         </div> -->
+          <!--         <div> -->
+          <!--             <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg" alt=""> -->
+          <!--         </div> -->
+          <!--     </div> -->
+          <!-- </div> -->
 
         </div>  <!-- ends content -->
 
