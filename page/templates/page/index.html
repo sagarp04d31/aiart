@@ -21,7 +21,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-white w-6 h-6 m-1 mr-4">
               <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
             </svg>
-            <a href="#" class="text-white text-xl">
+            <a href="" class="text-white text-xl">
               Home
             </a>
           </div>
@@ -71,77 +71,32 @@
         </div>  <!-- ends tobbar -->
 
         <div class="m-1 p-5 pt-10">  <!-- starts content -->
-          <!-- <figure class="max-w-lg"> -->
-          <!--   <img class="h-auto max-w-full rounded-lg" src="/docs/images/examples/image-3@2x.jpg" alt="image description"> -->
-          <!--   <figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">Image caption</figcaption> -->
-          <!-- </figure> -->
 
-
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {% for art in arts %}
-          {% if forloop.first %}
-          <div class="grid gap-4">
-          {% endif %}
-            <div>
-              <img class="h-auto max-w-full rounded-lg" src="{{ art.image.url }}" alt="">
+          <!-- <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {% for art in arts %}
+            {% if forloop.first %}
+            <div class="grid gap-4">
+            {% endif %}
+              <div>
+                <img class="h-auto max-w-full rounded-lg" src="{{ art.image.url }}" alt="">
+              </div>
+            {% if forloop.counter|divisibleby:3 %}
             </div>
-          {% if forloop.counter|divisibleby:4 %}
-          </div>
-          <div class="grid gap-4">
-          {% endif %}
-          {% if forloop.last %}
-          </div>
-          {% endif %}
-          {% endfor %}
-        </div>
+            <div class="grid gap-4">
+            {% endif %}
+            {% if forloop.last %}
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div> -->
 
-
-          <!-- <div class="grid grid-cols-2 md:grid-cols-4 gap-4"> -->
-          <!--     <div class="grid gap-4"> -->
-          <!--         <div> -->
-          <!--             <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg" alt=""> -->
-          <!--         </div> -->
-          <!--         <div> -->
-          <!--             <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg" alt=""> -->
-          <!--         </div> -->
-          <!--         <div> -->
-          <!--             <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg" alt=""> -->
-          <!--         </div> -->
-          <!--     </div> -->
-          <!--     <div class="grid gap-4"> -->
-          <!--         <div> -->
-          <!--             <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg" alt=""> -->
-          <!--         </div> -->
-          <!--         <div> -->
-          <!--             <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg" alt=""> -->
-          <!--         </div> -->
-          <!--         <div> -->
-          <!--             <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg" alt=""> -->
-          <!--         </div> -->
-          <!--     </div> -->
-          <!--     <div class="grid gap-4"> -->
-          <!--         <div> -->
-          <!--             <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg" alt=""> -->
-          <!--         </div> -->
-          <!--         <div> -->
-          <!--             <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg" alt=""> -->
-          <!--         </div> -->
-          <!--         <div> -->
-          <!--             <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg" alt=""> -->
-          <!--         </div> -->
-          <!--     </div> -->
-          <!--     <div class="grid gap-4"> -->
-          <!--         <div> -->
-          <!--             <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg" alt=""> -->
-          <!--         </div> -->
-          <!--         <div> -->
-          <!--             <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg" alt=""> -->
-          <!--         </div> -->
-          <!--         <div> -->
-          <!--             <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg" alt=""> -->
-          <!--         </div> -->
-          <!--     </div> -->
-          <!-- </div> -->
+          <div class="photo-grid">
+            {% for art in arts %}
+            <div class="card card-tall" style="background-image: url({{ art.image.url }});">
+              {{ art.description }}
+            </div>
+            {% endfor %}
+          </div>
 
         </div>  <!-- ends content -->
 
