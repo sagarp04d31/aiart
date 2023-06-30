@@ -1,0 +1,17 @@
+
+{% extends 'page/base.html' %}
+{% block main %}
+<div class="m-1 px-4 text-white">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            {{ form.image }}
+        </div>
+        <div class="m-2 text-black">
+            {{ form.description }}
+        </div>
+        <input type="submit" value="Upload" class="m-2 border-2 border-white px-2 rounded-sm">
+    </form>
+</div>
+{% endblock main %}
+
