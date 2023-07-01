@@ -39,31 +39,47 @@ def upload(request):
 def test(request):
     return render(request, 'page/test.html')
 
-
-def like(request, art_id):
+@login_required
+def like_art(request, art_id):
     art = ArtPiece.objects.get(pk=art_id)
     if request.user.is_authenticated:
         if request.user in art.likes.all():
             art.likes.remove(request.user)
         else:
             art.likes.add(request.user)
-
-def like_art(request, art_id):
-    like(request, art_id)
-    return redirect('personal')
-
-def personal_like(request, art_id):
-    like(request, art_id)
-    return redirect('personal')
-
+    return redirect(request.META.get('HTTP_REFERER', 'home'))
 
 # Details
+@login_required
 def details(request, art_id):
     art = ArtPiece.objects.get(pk=art_id)
     return render(request, 'page/details.html', { 'art': art })
 
+# Edit
+@login_required
+def edit(request, art_id):
+    art = ArtPiece.objects.get(pk=art_id)
+    if request.method == 'POST':
+        form = ArtPieceForm(request.POST, request.FILES, instance=art)
+        if form.is_valid():
+            art = form.save(commit=False)
+            art.user = request.user
+            art.save()
+            return redirect('/personal/upload')
+            # return redirect('/details/' + str(art_id))
+    else:
+        form = ArtPieceForm(instance=art)
+        return render(request, 'page/upload.html', { 'form': form })
 
+# Delete
+@login_required
+def delete(request, art_id):
+    art = ArtPiece.objects.get(pk=art_id)
+    art.delete()
+    return redirect(request.META.get('HTTP_REFERER', 'home'))
 
-
-
-
+# User
+@login_required
+def user(request, user_id):
+    arts = ArtPiece.objects.filter(user=user_id)
+    return render(request, 'page/user.html', { 'arts': arts })
