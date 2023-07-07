@@ -9,6 +9,6 @@ class ArtPiece(models.Model):
     likes = models.ManyToManyField(User, related_name="liked_art")
 
     def __str__(self):
-        return self.title
+        return (f"{self.user.username} : {self.title}")
 
 

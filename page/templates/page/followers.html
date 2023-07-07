@@ -1,0 +1,14 @@
+
+{% extends 'page/community.html' %}
+{% block content %}
+{% for follow in followers %}
+
+<ul>
+    <li class="m-2">
+        <a href="{% url 'user' user_id=follow.id %}" class="text-white hover:underline"> {{ follow }} </a>
+    </li>
+</ul>
+
+{% endfor %}
+{% endblock content %}
+

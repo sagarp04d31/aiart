@@ -1,0 +1,12 @@
+
+{% extends 'page/community.html' %}
+{% block content %}
+{% comment %}
+{% for follow in following %}
+    <a class="text-white"> {{ follow }} </a>
+{% endfor %}
+{% endcomment %}
+{% include 'page/photo-grid.html' %}
+{% endblock content %}
+
+

@@ -1,11 +1,11 @@
 
+
 <div class="flex justify-between items-center"> <!-- starts topbar -->
   <div class="flex items-center justify-center flex-wrap">
-      <a href="{% url 'personal' %}" class="cursor-pointer px-5 text-white font-mono"> Liked </a>
+      <a href="{% url 'personal_like' %}" class="cursor-pointer px-5 text-white font-mono"> Liked </a>
       <a href="{% url 'personal_upload' %}" class="cursor-pointer px-5 text-white font-mono"> Uploaded </a>
+      {% comment %} <a href="{% url 'personal_following' %}" class="cursor-pointer px-5 text-white font-mono"> Following </a> {% endcomment %}
   </div>
 </div>  <!-- ends topbar -->
 <hr class="border-white border-1 bg-white">
-
-
 

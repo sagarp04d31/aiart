@@ -1,22 +1,38 @@
 
+{% load static %}
+{% load widget_tweaks %}
 
-<div>
-  <form method="POST">
-    {% csrf_token %}
-    <fieldset>
-      <legend> Log In </legend>
-      {{ form.as_p }}
-    </fieldset>
-    <div>
-      <button type="submit"> Login </button>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Login </title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  </head>
+  <body class="font-jet text-black bg-gray-200 flex items-center justify-center min-h-screen">
+    <div class="my-10 mx-auto w-3/12 bg-white shadow-lg rounded-lg p-6">
+      <form method="POST">
+        {% csrf_token %}
+        <div class="my-5">
+          <label class="block mb-2 text-lg font-medium text-gray-700">
+            {{ form.username.label }}
+          </label>
+          {{ form.username|add_class:"border-2 border-gray-300 cursor-default focus:outline-none focus:border-cyan-500 rounded-lg p-2 w-full" }}
+        </div>
+        <div class="my-5">
+          <label class="block mb-2 text-lg font-medium text-gray-700">
+            {{ form.password.label }}
+          </label>
+          {{ form.password|add_class:"border-2 border-gray-300 cursor-default focus:outline-none focus:border-cyan-500 rounded-lg p-2 w-full" }}
+        </div>
+        <div class="my-5 text-center">
+          <button type="submit" class="bg-cyan-500 hover:bg-cyan-600 text-white text-lg font-medium rounded-lg px-6 p-1"> Login </button>
+        </div>
+      </form>
+      <div class="text-sm text-center">
+        <span> Don't have an account ? </span>
+        <a action="{% url 'register' %}" class="text-blue-700 cursor-pointer ml-2"> Sign Up </a>
+      </div>
     </div>
-  </form>
-  <div>
-    <small>
-      Already Have An Account? <a href="{% url 'register' %}"> Sign Up </a>
-    </small>
-  </div>
-</div>
-
-
+  </body>
+</html>
 

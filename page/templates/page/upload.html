@@ -1,3 +1,4 @@
+
 {% extends 'page/base.html' %}
 {% load widget_tweaks %}
 {% block main %}
@@ -11,11 +12,12 @@
             {{ form.title|add_class:"bg-primary border border-white text-white rounded-md w-1/3 m-1 my-4 p-2 focus:outline-none focus:border-[#FF0045]" }}
         </div>
         <div>
-            {{ form.description|add_class:" bg-primary border border-white text-white rounded-md w-1/3 m-1 my-4 p-2 focus:outline-none focus:border-[#FF0045]" }}
+            {{ form.description|add_class:"bg-primary border border-white text-white rounded-md w-1/3 m-1 my-4 p-2 focus:outline-none focus:border-[#FF0045]" }}
         </div>
-        <input type="submit" value="Upload" class="border-2 border-white text-white focus:outline-none focus:border-cyan-400
-        rounded-md cursor-pointer m-1 p-1 px-4">
+        <input type="submit" value="Upload" class="border-2 border-white text-white focus:outline-none focus:border-cyan-400 rounded-md cursor-pointer m-1 p-1 px-4">
     </form>
 </div>
 {% endblock main %}
+
+
 
