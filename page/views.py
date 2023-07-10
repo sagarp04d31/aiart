@@ -10,7 +10,7 @@ from users.models import Profile
 def index(request):
     arts = ArtPiece.objects.all()
     size_type = ['card-tall', 'card-wide', '']
-    return render(request, 'page/index.html', { 'arts': arts, 'size_type': size_type})
+    return render(request, 'page/index.html', { 'arts': arts, 'card': size_type})
 
 # Personal
 @login_required

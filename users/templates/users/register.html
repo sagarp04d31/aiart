@@ -1,20 +1,64 @@
+{% load static %}
+{% load widget_tweaks %}
 
 <!DOCTYPE html>
 <html>
   <head>
-    <title> Register </title>
+    <title> Sign Up </title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
   </head>
-  <body>
-    <h1> Register </h1>
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <br>
-      <button type="submit"> Sign Up </button>
-      <small>
-        Already Have An Account? <a href="{% url 'login' %}"> Log In </a>
-      </small>
-    </form>
+  <body class="font-jet text-black bg-gray-200 flex items-center justify-center min-h-screen">
+    <div class="my-10 mx-auto w-3/12 bg-white shadow-lg rounded-lg p-6">
+
+      <h1 class="text-center text-black font-bold text-lg"> Register </h1>
+
+      <form method="post">
+        {% csrf_token %}
+
+        <div class="my-5">
+          <label class="block mb-2 text-lg font-medium text-gray-700">
+            {{ form.username.label }}
+          </label>
+          {{ form.username|add_class:"border-2 border-gray-300 cursor-default focus:outline-none focus:border-cyan-500 rounded-lg p-2 w-full" }}
+        </div>
+
+        <div class="my-5">
+          <label class="block mb-2 text-lg font-medium text-gray-700">
+            {{ form.email.label }}
+          </label>
+          {{ form.email|add_class:"border-2 border-gray-300 cursor-default focus:outline-none focus:border-cyan-500 rounded-lg p-2 w-full" }}
+        </div>
+
+        <div class="my-5">
+          <label class="block mb-2 text-lg font-medium text-gray-700">
+            {{ form.password1.label }}
+          </label>
+          {{ form.password1|add_class:"border-2 border-gray-300 cursor-default focus:outline-none focus:border-cyan-500 rounded-lg p-2 w-full" }}
+        </div>
+
+        <div class="my-5">
+          <label class="block mb-2 text-lg font-medium text-gray-700">
+            {{ form.password2.label }}
+          </label>
+          {{ form.password2|add_class:"border-2 border-gray-300 cursor-default focus:outline-none focus:border-cyan-500 rounded-lg p-2 w-full" }}
+        </div>
+
+        <div class="my-5 text-center">
+          <button type="submit" class="bg-cyan-500 hover:bg-cyan-600 text-white text-lg font-medium rounded-lg px-6 p-1"> Sign Up </button>
+        </div>
+      </form>
+
+      <div class="text-sm text-center">
+        <span> Already have an account ? </span>
+        <a href="{% url 'login' %}" class="text-blue-700 cursor-pointer ml-2"> Login </a>
+      </div>
+
+    </div>
   </body>
 </html>
+
+
+
+
+
 
