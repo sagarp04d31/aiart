@@ -7,12 +7,19 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="{% static 'css/style.css' %}" rel="stylesheet">
-        <script src="{% static 'js/like.js' %}"> </script>
+        {% comment %} <script src="{% static 'js/like.js' %}"> </script> {% endcomment %}
+        <style>
+          .custom-shadow {
+            box-shadow: none 8px 0px 0px rgba(0, 0, 0, 0.2);
+          }
+        </style>
     </head>
-    <body class="font-jet bg-primary">
+    <body class="font-jet bg-[#393E46]">
         <div class="flex">
           {% include 'page/sidebar.html' %}
-          <div class="flex-1 flex flex-col border-l-2 border-white bg-primary ml-60"> <!-- starts main -->
+          <div class="flex-1 flex flex-col
+          shadow-white
+        bg-[#252A34] ml-60 custom-shadow"> <!-- starts main -->
             {% block main %}
             {% endblock main %}
           </div>  <!-- ends main -->

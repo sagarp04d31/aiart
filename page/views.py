@@ -51,7 +51,7 @@ def upload(request):
             art = form.save(commit=False)
             art.user = request.user
             art.save()
-            return redirect('home')
+            return redirect('personal_upload')
     else:
         form = ArtPieceForm()
         return render(request, 'page/upload.html', { 'form': form })

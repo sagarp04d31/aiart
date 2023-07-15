@@ -1,15 +1,28 @@
-<div class="photo-grid">
-    {% for art in arts %}
-    <div class="flex flex-col justify-center items-center bg-[#353535]
-    text-2xl text-[#FFFFFF] shadow-black h-full w-full rounded-sm
-    transition-all duration-300 overflow-hidden bg-cover bg-center
-    bg-no-repeat hover:shadow-gray-600" style="background-image: url({{ art.image.url }});">
 
+<div class="photo-grid m-5">
+    {% for art in arts %}
+    <div class="flex flex-col justify-center items-center bg-primary
+    text-2xl text-[#FFFFFF] h-full w-full rounded-md
+    transition-all duration-200 overflow-hidden bg-cover bg-center
+    shadow-md shadow-black hover:shadow-2xl cursor-pointer hover:scale-100
+    border-4 border-black
+  hover:shadow-black bg-no-repeat"
+    onclick="window.location.href='{% url 'details' art_id=art.id %}' "
+    style="background-image: url({{ art.image.url }});">
 
         {% if art.user != None %}
+        {% comment %}
         <div class="text-lg text-white px-2 m-2 ml-auto border bg-black rounded-md">
-            <a href="{% url 'user' user_id=art.user.id %}"> @{{ art.user }} </a>
+            <a href="{% url 'user' user_id=art.user.id %}" class="text-white hover:underline"> @{{ art.user }} </a>
         </div>
+        {% endcomment %}
+
+        <div class="text-sm text-white bg-gradient-to-t from-black to-gray-500 rounded-full shadow-md
+        hover:bg-black duration-200
+        shadow-black m-2 px-2 ml-auto">
+            <a href="{% url 'user' user_id=art.user.id %}"> @{{ art.user }}</a>
+        </div>
+
         {% endif %}
 
         <div class="flex flex-row justify-end items-center mt-auto">
@@ -38,11 +51,13 @@
             {% endif %}
 
             <!-- Link to Details Page -->
+            {% comment %}
             <a href={% url 'details' art_id=art.id %}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
                 </svg>
             </a>
+            {% endcomment %}
 
             <!-- Edit and Delete -->
             {% if user.username in art.user.username %}
@@ -64,3 +79,8 @@
     </div>
     {% endfor %}
 </div>
+
+
+
+
+

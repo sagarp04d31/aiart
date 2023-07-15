@@ -2,8 +2,11 @@
 {% extends 'page/base.html' %}
 {% block main %}
 <div class="flex flex-row">
-    <div class="p-2 h-screen overflow-hidden">
-        <img src="{{ art.image.url }}" class="object-cover w-full h-full">
+    <div class="h-screen overflow-hidden
+    border-4 border-black
+    shadow-md shadow-black
+    ">
+        <img src="{{ art.image.url }}" class="object-cover w-full h-full"> </img>
     </div>
     <div class="p-2 w-6/12">
         {% if art.title != None %}
@@ -13,6 +16,4 @@
     </div>
 </div>
 {% endblock main %}
-
-
 
