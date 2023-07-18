@@ -1,1 +1,1 @@
-web: gunicorn 'art.wsgi'
+web: gunicorn 'name-of-application.wsgi'
