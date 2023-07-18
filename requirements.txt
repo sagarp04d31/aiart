@@ -1,8 +1,8 @@
-asgiref @ file:///C:/Users/BUILDE~1/AppData/Local/Temp/abs_cchykh5sgr/croots/recipe/asgiref_1661287542702/work
-certifi @ file:///C:/b/abs_4a0polqwty/croot/certifi_1683875377622/work/certifi
+asgiref==3.5.2
+certifi==2023.5.7
 charset-normalizer==3.1.0
 dateparser==1.1.8
-Django @ file:///C:/Users/BUILDE~1/AppData/Local/Temp/abs_eeor5o9jj8/croots/recipe/django_1661292534510/work
+Django==4.1
 django-widget-tweaks==1.4.12
 djangorestframework==3.14.0
 filelock==3.12.0
@@ -17,10 +17,10 @@ regex==2023.5.5
 requests==2.30.0
 requests-file==1.5.1
 six==1.16.0
-sqlparse @ file:///C:/b/abs_83jn6owfpc/croot/sqlparse_1668793499314/work
+sqlparse==0.4.3
 tldextract==3.4.1
 typing_extensions==4.5.0
-tzdata @ file:///tmp/build/80754af9/python-tzdata_1611693927741/work
+tzdata==2021.1
 tzlocal==5.0
 urllib3==2.0.2
 whitenoise==6.4.0
