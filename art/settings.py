@@ -45,8 +45,8 @@ MIDDLEWARE = [
 
 if not DEBUG:
     CSRF_TRUSTED_ORIGINS = [
-        'https://web-production-e733.up.railway.app/*',
-        'https://127.0.0.1:8000/',
+        'https://web-production-5b0e5.up.railway.app',
+        'https://127.0.0.1:8000',
     ]
 
 
