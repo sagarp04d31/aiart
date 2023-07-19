@@ -1,1 +1,1 @@
-web: gunicorn 'art.wsgi' --log-file-
+web: gunicorn 'art.wsgi'
