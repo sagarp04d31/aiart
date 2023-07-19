@@ -43,10 +43,14 @@ MIDDLEWARE = [
 ]
 
 
-CSRF_TRUSTED_ORIGINS = [
-    'web-production-e733.up.railway.app',
-    '127.0.0.1:8000/',
-]
+if not DEBUG:
+    CSRF_TRUSTED_ORIGINS = [
+        'https://web-production-e733.up.railway.app',
+        'https://127.0.0.1:8000/',
+    ]
+
+
+
 
 ROOT_URLCONF = 'art.urls'
 
