@@ -43,13 +43,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
-if not DEBUG:
-    CSRF_TRUSTED_ORIGINS = [
-        'https://web-production-5b0e5.up.railway.app',
-        'https://127.0.0.1:8000',
-    ]
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://web-production-5b0e5.up.railway.app',
+    'https://127.0.0.1:8000',
+]
 
 ROOT_URLCONF = 'art.urls'
 
