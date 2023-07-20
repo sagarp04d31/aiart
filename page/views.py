@@ -105,6 +105,12 @@ def delete(request, art_id):
 def user(request, user_id):
     arts = ArtPiece.objects.filter(user=user_id)
     user = User.objects.get(id=user_id)
+
+    try:
+        profile = Profile.objects.get(user=user_id)
+    except Profile.DoesNotExist:
+        return render(request, 'page/user.html', { 'no_profile': True })
+
     profile = Profile.objects.get(user=user_id)
     followers = profile.followers.all()
     following = profile.user.following.all()
@@ -125,7 +131,13 @@ def user(request, user_id):
 @login_required
 def following(request):
     current_user = request.user
-    profile = Profile.objects.get(user=current_user)
+    # profile = Profile.objects.get(user=current_user)
+
+    try:
+        profile = Profile.objects.get(user=request.user)
+    except Profile.DoesNotExist:
+        return render(request, 'page/community.html', { 'no_profile': True })
+
     following = profile.user.following.all()
 
     arts = []
@@ -142,7 +154,11 @@ def following(request):
 @login_required
 def followers(request):
     current_user = request.user
-    profile = Profile.objects.get(user=current_user)
+    try:
+        profile = Profile.objects.get(user=request.user)
+    except Profile.DoesNotExist:
+        return render(request, 'page/community.html', { 'no_profile': True })
+
     followers = profile.followers.all()
 
     return render(request, 'page/followers.html', { 'followers': followers })

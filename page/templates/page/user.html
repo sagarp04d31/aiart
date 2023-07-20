@@ -2,16 +2,20 @@
 {% block main %}
 
 <div class="flex flex-row">
-<h1 class="m-2 px-4 text-white font-bold underline"> {{ follow.username }} </h1>
-{% if cuser.username != user.username %}
-    <a href="{% url 'follow' user_id=follow.id %}" class="flex flex-row justify-center items-center text-white text-sm bg-primary mx-5 my-2 p-px px-5 border-2 border-white rounded-full">
-        {% if is_following %}
-            Following
-        {% else %}
-            Follow
+    {% if no_profile %}
+        <h1 class="text-2xl text-white px-4 m-1"> Profile Not Yet Verified </h1>
+    {% else %}
+        <h1 class="m-2 px-4 text-white font-bold underline"> {{ follow.username }} </h1>
+        {% if cuser.username != user.username %}
+            <a href="{% url 'follow' user_id=follow.id %}" class="flex flex-row justify-center items-center text-white text-sm bg-primary mx-5 my-2 p-px px-5 border-2 border-white rounded-full">
+                {% if is_following %}
+                    Following
+                {% else %}
+                    Follow
+                {% endif %}
+            </a>
         {% endif %}
-    </a>
-{% endif %}
+    {% endif %}
 </div>
 
 {% include 'page/photo-grid.html' %}
