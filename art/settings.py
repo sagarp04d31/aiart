@@ -45,6 +45,7 @@ MIDDLEWARE = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
+    'https://aiart-production.up.railway.app',
     'https://web-production-5b0e5.up.railway.app',
     'https://127.0.0.1:8000',
 ]
